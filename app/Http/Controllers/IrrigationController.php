@@ -13,6 +13,7 @@ class IrrigationController extends Controller
      */
     public function index()
     {
+    
         return view('irrigation.index');
     }
 
