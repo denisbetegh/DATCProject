@@ -15,3 +15,4 @@
     return view('welcome');
 }); */
 Route::resource('index', 'IrrigationController');
+Route::get('/index', 'IrrigationController@index');
