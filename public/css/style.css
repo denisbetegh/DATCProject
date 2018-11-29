@@ -4,18 +4,9 @@ html, body {
     padding: 0;
 }
 #map {
-    padding: 450px;
-    padding-bottom:350px;  
-    width: 47%;
-    height: 75%;
 
-  margin-left: 0;
   }
 #map2 {
-    padding: 450px;
-    padding-bottom:350px;  
-    width: 47%;
-    height: 75%;
-    margin-right: 0;
+
 
 }
