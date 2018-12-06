@@ -28,6 +28,38 @@
                     <p class="font-weight-bold text-center"> Humidity</p>
                  </div>
             </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Number of the measurement</th>
+                  <th scope="col">Temperature1</th>
+                  <th scope="col">Humidity1</th>
+                  <th scope="col">Temperature2</th>
+                  <th scope="col">Humidity2</th>
+                  <th scope="col">Temperature3</th>
+                  <th scope="col">Humidity3</th>
+                  <th scope="col">Temperature4</th>
+                  <th scope="col">Humidity4</th>
+                  <th scope="col">Temperature5</th>
+                  <th scope="col">Humidity5</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach($irrigations as $irrigation)
+                <tr>
+                  <td>{{$irrigation->id}}</td>
+                  <td>{{$irrigation->temp1}}</td>
+                  <td>{{$irrigation->humi1}}</td>
+                  <td>{{$irrigation->temp2}}</td>
+                  <td>{{$irrigation->humi2}}</td>
+                  <td>{{$irrigation->temp3}}</td>
+                  <td>{{$irrigation->humi3}}</td>
+                  <td>{{$irrigation->temp4}}</td>
+                  <td>{{$irrigation->humi4}}</td>
+                  @endforeach
+                </tr>
+              </tbody>
+            </table>
         </div>
     </body>
 
@@ -43,11 +75,11 @@
             function initialize() {
               var mapOptions = {
                 zoom: 15,
-                center: {lat: 45.7494, lng: 21.2272}
+                center: {lat: 45.73978985599603, lng: 21.244560080973997}
               };
               var mapOptions2 = {
                 zoom: 15,
-                center: {lat: 45.7494, lng: 21.2272}
+                center: {lat: 45.73978985599603, lng: 21.244560080973997}
               };
               map = new google.maps.Map(document.getElementById('map'),
                   mapOptions);
@@ -79,8 +111,33 @@
     ,fillColor: '#FF0000',
     fillOpacity: 0.35
   });
+  var flightPlanCoordinates = [
+    {lat:45.74113992353151, lng:21.24396463057269},
+    {lat:45.74112581763608, lng:21.244240898101225},
+    {lat:45.74105445762709, lng:21.244399148433104},
+    {lat:45.740969445796566, lng:21.244498390166655},
+    {lat:45.74006690571486, lng:21.244839030711546},
+    {lat:45.73991714928079, lng:21.24474247118701},
+    {lat:45.73978985599603, lng:21.244560080973997},
+    {lat:45.73976739244505, lng:21.244334775416746},
+    {lat:45.7397823681467, lng:21.244163114039793},
+    {lat:45.73984975875442, lng:21.24399145266284},
+    {lat:45.74076326785684, lng:21.243626672236815},
+    {lat:45.741020951198024, lng:21.24371920844783},
+    {lat:45.74113992353151, lng:21.24396463057269},
+  ];
+  var flightPath2 = new google.maps.Polygon({
+    path: flightPlanCoordinates,
+    geodesic: true,
+    strokeColor: '#FF0000',
+    strokeOpacity: 1.0,
+    strokeWeight: 2   
+    ,fillColor: '#FF0000',
+    fillOpacity: 0.35
+  });
 
   flightPath.setMap(map);
+  flightPath2.setMap(map2);
 
 
               /* var marker = new google.maps.Marker({

@@ -23,7 +23,10 @@ class CreateIrrigationsTable extends Migration
             $table->integer('humi3');
             $table->integer('temp4');
             $table->integer('humi4');
-            $table->timestamps();
+            $table->integer('temp5');
+            $table->integer('humi5');
+            $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
+/*             $table->timestamps(); */
         });
     }
 

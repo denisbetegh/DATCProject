@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Irrigation;
+use Eloquent;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 class IrrigationController extends Controller
 {
     /**
@@ -13,8 +17,9 @@ class IrrigationController extends Controller
      */
     public function index()
     {
-    
-        return view('irrigation.index');
+        $irrigations = Irrigation::latest()->limit(1)->get();
+        
+        return view('irrigation.index', compact(['irrigations']));
     }
 
     /**
